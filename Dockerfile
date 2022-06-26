@@ -15,7 +15,7 @@ WORKDIR /app
 #upgrade pip version
 RUN pip install --no-cache-dir --upgrade pip
 
-RUN pip install rasa=docker-compose.yml
+RUN pip install rasa=3.1.0
 
 ADD config.yml config.yml
 ADD domain.yml domain.yml
