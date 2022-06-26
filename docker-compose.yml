@@ -1,0 +1,23 @@
+version: '3.4'
+services:
+  rasa:
+    image: rasa-bot:latest
+    working_dir: /app
+    build: "./"
+    restart: always
+    volumes:
+    - ./actions:/app/actions
+    - ./data:/app/data
+    - ./models:/app/modules
+    command: bash -c "rm -rf models/* && rasa && rasa run --enable-api --cors \"*\" --debug"
+    ports:
+    - '5005:5005'
+    networks:
+    - all
+
+  rasa-actions:
+    image: rasa-bot:latest
+    working_dire: /app
+    build: "./"
+    restart: always
+    volumes:
