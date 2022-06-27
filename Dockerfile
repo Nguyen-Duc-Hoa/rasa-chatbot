@@ -1,9 +1,9 @@
-FROM python:3.7.7-stretch AS BASE
 
+FROM python:3.7.7-stretch AS BASE
 
 RUN apt-get update \
     && apt-get --assume-yes --no-install-recommends install \
-        build-assential \
+        build-essential \
         curl \
         git \
         jq \
@@ -12,10 +12,10 @@ RUN apt-get update \
 
 WORKDIR /app
 
-#upgrade pip version
+# upgrade pip version
 RUN pip install --no-cache-dir --upgrade pip
 
-RUN pip install rasa=3.1.0
+RUN pip install rasa==3.1.0
 
 ADD config.yml config.yml
 ADD domain.yml domain.yml
