@@ -2,7 +2,7 @@ FROM python:3.7.7-stretch AS BASE
 
 
 RUN apt-get update \
-    && apt-get --asummen-yes --no-install-recommends install \
+    && apt-get --assume-yes --no-install-recommends install \
         build-assential \
         curl \
         git \
